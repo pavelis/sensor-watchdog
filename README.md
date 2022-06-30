@@ -5,15 +5,18 @@ The script checks if the sensor doesn't send data to sensor.community website an
 
 ## Installation
 
-`git clone`
+Install git and python3-venv if not installed:
 
-`cd sensor-watchdog`
+`sudo apt install git python3-venv`
 
-`python3 -m venv venv`
 
-`source venv/bin/activate`
+Clone the repository and install required packages:
 
-`pip install -r requirements.txt`
+``git clone https://github.com/pavelis/sensor-watchdog.git`
+cd sensor-watchdog
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt``
 
 
 ## Setting up
@@ -24,12 +27,12 @@ Rename `.env.example` file to `.env`
 
 Edit the file:
 
-`
+``
 SENSOR_USER_NAME=""
 SENSOR_PASSWORD=""
 SENSOR_ID=""
 SENSOR_URL="http://192.168.0.1/"
-`
+``
 
 `SENSOR_USER_NAME` is a user name for sensor configuration (default is `admin`)
 
@@ -44,5 +47,14 @@ By default, a sensor's authentication is disabled, thus these fields should be b
 
 ## Scheduling
 
+Edit the crontab file:
 
+`crontab -e`
 
+Add the following lines:
+
+``SHELL=/bin/bash
+5 * * * * cd ~/sensor-watchdog && source venv/bin/activate && date --rfc-3339=seconds >> ~/sensor-watchdog.log && venv/bin/python watchdog.py >> ~/sensor-watchdog.log 2>&1
+``
+
+Replace `~/` with your sensor-watchdog location.
