@@ -13,7 +13,7 @@ Install git and python3-venv if not installed:
 Clone the repository and install required packages:
 
 ```
-git clone https://github.com/pavelis/sensor-watchdog.git`
+git clone https://github.com/pavelis/sensor-watchdog.git
 cd sensor-watchdog
 python3 -m venv venv
 source venv/bin/activate
@@ -23,11 +23,13 @@ pip install -r requirements.txt
 
 ## Setting up
 
-Rename `.env.example` file to `.env`
+Rename `.env.example` file to `.env`:
 
 `mv .env.example .env`
 
 Edit the file:
+
+`nano .env`
 
 ```
 SENSOR_USER_NAME=""
@@ -40,7 +42,7 @@ SENSOR_URL="http://192.168.0.1/"
 
 `SENSOR_PASSWORD` is a password for sensor configuration
 
-By default, a sensor's authentication is disabled, thus these fields should be blank.
+If a sensor's authentication is disabled (by default), these fields should be blank.
 
 `SENSOR_ID` is a sensor's ID, as it shown on the map: https://maps.sensor.community/ after the `#` sign.
 
