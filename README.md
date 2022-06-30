@@ -12,11 +12,13 @@ Install git and python3-venv if not installed:
 
 Clone the repository and install required packages:
 
-``git clone https://github.com/pavelis/sensor-watchdog.git`
+```
+git clone https://github.com/pavelis/sensor-watchdog.git`
 cd sensor-watchdog
 python3 -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt``
+pip install -r requirements.txt
+```
 
 
 ## Setting up
