@@ -27,12 +27,12 @@ Rename `.env.example` file to `.env`
 
 Edit the file:
 
-``
+```
 SENSOR_USER_NAME=""
 SENSOR_PASSWORD=""
 SENSOR_ID=""
 SENSOR_URL="http://192.168.0.1/"
-``
+```
 
 `SENSOR_USER_NAME` is a user name for sensor configuration (default is `admin`)
 
@@ -53,8 +53,9 @@ Edit the crontab file:
 
 Add the following lines:
 
-``SHELL=/bin/bash
+```
+SHELL=/bin/bash
 5 * * * * cd ~/sensor-watchdog && source venv/bin/activate && date --rfc-3339=seconds >> ~/sensor-watchdog.log && venv/bin/python watchdog.py >> ~/sensor-watchdog.log 2>&1
-``
+```
 
 Replace `~/` with your sensor-watchdog location.
